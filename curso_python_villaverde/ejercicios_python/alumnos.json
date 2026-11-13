@@ -1,0 +1,6 @@
+[{"alumno":"Juan", "curso":"Java","nota":8}, 
+{"alumno":"Pedro", "curso":"Java","nota":4}, 
+{"alumno":"Elena", "curso":"Python","nota":5}, 
+{"alumno":"Marta", "curso":"Net","nota":3},
+{"alumno":"Marta", "curso":"Java","nota":6},
+{"alumno":"Pedro", "curso":"Angular","nota":9}]

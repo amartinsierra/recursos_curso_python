@@ -1,0 +1,51 @@
+﻿id_venta,fecha,cliente,producto,categoria,unidades,precio_unitario,coste_unitario,descuento,region,vendedor,metodo_pago
+V001,2025-01-30,C008,Portátil Basic 15,Informática,5.0,790,510.0,0,Sur,V001,Tarjeta
+V002,2026-03-13,C003,Disco SSD 1TB,Almacenamiento,1.0,109,61.0,0,Sur,V002,Tarjeta
+V003,2025-07-27,C015,Webcam HD,Accesorios,7.0,59,24.0,0,Centro,V003,Tarjeta
+V004,2026-03-13,C005,Monitor 27,Informática,6.0,289,165.0,0,Sur,V003,Tarjeta
+V005,2026-01-29,C012,Portátil Basic 15,Informática,2.0,790,510.0,0,Centro,V003,Tarjeta
+V006,2026-07-08,,Tablet 10,Informática,2.0,349,215.0,5,Centro,V003,PayPal
+V007,2025-07-20,C008,Disco SSD 1TB,Almacenamiento,2.0,109,61.0,0,Este,V001,Transferencia
+V008,2026-01-29,C012,Portátil Basic 15,Informática,5.0,790,510.0,5,Sur,V003,PayPal
+V009,2025-10-05,C006,Teclado mecánico,Accesorios,2.0,89,42.0,10,Centro,V002,Transferencia
+V010,2026-01-28,C018,Tablet 10,Informática,5.0,349,215.0,15,Sur,V003,Tarjeta
+V011,2025-02-06,C009,Teclado mecánico,Accesorios,6.0,89,42.0,5,Norte,V002,PayPal
+V012,2026-11-07,C015,Teclado mecánico,Accesorios,,89,42.0,5,Sur,V003,Transferencia
+V013,2026-08-02,C014,Teclado mecánico,Accesorios,5.0,89,42.0,15,Centro,V004,PayPal
+V014,2025-05-26,C002,Teclado mecánico,Accesorios,8.0,89,42.0,0,Norte,V002,Transferencia
+V015,2026-09-07,C013,Altavoz inteligente,Audio,2.0,79,36.0,5,Centro,V004,PayPal
+V016,2025-01-16,C018,Webcam HD,Accesorios,2.0,59,24.0,15,Este,V003,Tarjeta
+V017,2026-03-26,C001,Ratón inalámbrico,Accesorios,3.0,35,12.0,5,Este,V005,Transferencia
+V018,2025-04-23,C017,Webcam HD,Accesorios,5.0,-25,24.0,20,Centro,V002,Transferencia
+V019,2025-06-19,C011,Auriculares BT,Audio,1.0,119,58.0,10,Oeste,V001,Tarjeta
+V020,2025-11-15,C008,Auriculares BT,Audio,4.0,119,58.0,0,Centro,V001,Tarjeta
+V021,2025-03-16,C016,Tablet 10,Informática,3.0,349,215.0,0,Centro,V002,PayPal
+V022,2026-09-18,C018,Webcam HD,Accesorios,7.0,59,24.0,0,Sur,V003,Bizum
+V023,2026-03-29,C008,Auriculares BT,Audio,8.0,119,58.0,0,Sur,V001,PayPal
+V024,2026-08-30,C008,Portátil Pro 14,Informática,4.0,1250,820.0,125,Norte,V001,Tarjeta
+V025,2025-03-15,C011,Teclado mecánico,Accesorios,1.0,89,42.0,20,Norte,V005,Transferencia
+V026,2026-05-17,C005,Ratón inalámbrico,Accesorios,4.0,35,12.0,10,Centro,V005,Bizum
+V027,2026-05-04,C004,Teclado mecánico,Accesorios,7.0,89,42.0,0,Norte,V004,PayPal
+V028,2026-03-01,C002,Altavoz inteligente,Audio,8.0,79,36.0,20,Norte,V001,Bizum
+V029,2025-04-26,C007,Auriculares BT,Audio,4.0,119,58.0,0,Centro,V004,Transferencia
+V030,31/19/2025,C008,Altavoz inteligente,Audio,5.0,79,36.0,5,Norte,V004,Tarjeta
+V031,2026-11-03,C008,Portátil Pro 14,Informática,1.0,1250,820.0,0,Sur,V004,Bizum
+V032,2025-08-11,C006,Tablet 10,Informática,7.0,349,215.0,0,Oeste,V001,Bizum
+V033,2026-04-15,C018,Ratón inalámbrico,Accesorios,5.0,35,12.0,5,Oeste,V002,Transferencia
+V034,2025-08-15,C018,Ratón inalámbrico,Accesorios,1.0,35,12.0,10,Norte,V003,Tarjeta
+V035,2026-08-26,C017,Portátil Pro 14,Informática,8.0,1250,820.0,10,,V001,Tarjeta
+V036,2025-03-16,C008,Monitor 27,Informática,2.0,289,165.0,15,Oeste,V001,Transferencia
+V037,2026-09-05,C003,Disco SSD 1TB,Almacenamiento,1.0,109,61.0,10,Oeste,V005,PayPal
+V038,2025-08-02,C009,Ratón inalámbrico,Accesorios,6.0,35,12.0,0,Oeste,V002,PayPal
+V039,2025-11-24,C015,Tablet 10,Informática,2.0,349,215.0,0,Centro,V005,Tarjeta
+V040,2026-07-09,C009,Portátil Basic 15,Informática,35.0,2500,700.0,10,Sur,V003,Tarjeta
+V041,2026-01-18,C015,Teclado mecánico,Accesorios,5.0,89,42.0,0,Centro,V003,Tarjeta
+V042,2025-11-07,C009,Webcam HD,Accesorios,2.0,59,24.0,0,Norte,V001,Transferencia
+V043,2025-10-20,C011,Ratón inalámbrico,Accesorios,4.0,35,12.0,15,Sur,V003,Bizum
+V044,2025-02-26,C014,Ratón inalámbrico,Accesorios,2.0,35,12.0,15,Este,V001,Tarjeta
+V045,2025-05-18,C015,Auriculares BT,Audio,1.0,1,0.5,0,Centro,V004,Tarjeta
+V046,2025-03-23,C002,Portátil Basic 15,Informática,3.0,790,510.0,10,Este,V005,Transferencia
+V047,2025-05-15,C012,Altavoz inteligente,Audio,1.0,79,36.0,0,Norte,V003,Transferencia
+V048,2025-04-20,C018,Teclado mecánico,Accesorios,6.0,89,42.0,20,Oeste,V005,Transferencia
+V003,2025-07-27,C015,Webcam HD,Accesorios,7.0,59,24.0,0,Centro,V003,Tarjeta
+V021,2025-03-16,C016,Tablet 10,Informática,3.0,349,215.0,0,Centro,V002,PayPal
