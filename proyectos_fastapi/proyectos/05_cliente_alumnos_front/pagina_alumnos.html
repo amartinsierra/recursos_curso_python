@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Alumnos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--secondary);
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem 2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.6rem;
+            margin-top: 0.3rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        button {
+            margin-top: 1.2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.6rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f8fafc;
+        }
+
+        .message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .error {
+            color: #dc2626;
+        }
+
+        .success {
+            color: #16a34a;
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    Gestión de Alumnos
+</header>
+
+<main>
+    <div class="grid">
+
+        <!-- Consulta por curso -->
+        <div class="card">
+            <h2>Consulta de alumnos por curso</h2>
+
+            <label for="cursoBuscar">Curso</label>
+            <input type="text" id="cursoBuscar" placeholder="Ej: DAM, DAW, ASIR">
+
+            <button onclick="buscarPorCurso()">Buscar</button>
+
+            <div id="resultadoBusqueda"></div>
+        </div>
+
+        <!-- Alta de alumno -->
+        <div class="card">
+            <h2>Alta de nuevo alumno</h2>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre">
+
+            <label for="email">Email</label>
+            <input type="email" id="email">
+
+            <label for="cursoAlta">Curso</label>
+            <input type="text" id="cursoAlta">
+
+            <button onclick="altaAlumno()">Dar de alta</button>
+
+            <div id="mensajeAlta" class="message"></div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    const API_URL = "http://localhost:8000";
+
+    async function buscarPorCurso() {
+        const curso = document.getElementById("cursoBuscar").value.trim();
+        const contenedor = document.getElementById("resultadoBusqueda");
+
+        if (!curso) {
+            contenedor.innerHTML = "<p class='error'>Introduce un curso</p>";
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_URL}/alumnos/porcurso?curso=${curso}`);
+            const alumnos = await response.json();
+
+            if (alumnos.length === 0) {
+                contenedor.innerHTML = "<p>No hay alumnos para este curso</p>";
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Curso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            alumnos.forEach(a => {
+                html += `
+                    <tr>
+                        <td>${a.nombre}</td>
+                        <td>${a.email}</td>
+                        <td>${a.curso}</td>
+                    </tr>
+                `;
+            });
+
+            html += "</tbody></table>";
+            contenedor.innerHTML = html;
+
+        } catch (error) {
+            contenedor.innerHTML = "<p class='error'>Error al consultar alumnos</p>";
+        }
+    }
+
+    async function altaAlumno() {
+        const mensaje = document.getElementById("mensajeAlta");
+
+        const alumno = {
+            nota:0,
+            nombre: document.getElementById("nombre").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            curso: document.getElementById("cursoAlta").value.trim()
+        };
+
+        if (!alumno.nombre || !alumno.email || !alumno.curso) {
+            mensaje.textContent = "Todos los campos son obligatorios";
+            mensaje.className = "message error";
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_URL}/alumnos`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(alumno)
+            });
+
+            if (response.status === 200) {
+                mensaje.textContent = "Alumno dado de alta correctamente";
+                mensaje.className = "message success";
+            } else if (response.status === 409) {
+                mensaje.textContent = "El alumno ya existe";
+                mensaje.className = "message error";
+            } else {
+                mensaje.textContent = "Error al dar de alta el alumno";
+                mensaje.className = "message error";
+            }
+
+        } catch (error) {
+            mensaje.textContent = "No se pudo conectar con el servidor";
+            mensaje.className = "message error";
+        }
+    }
+</script>
+
+</body>
+</html>
